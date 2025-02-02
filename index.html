@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Deals Kenya</title>
     <meta name="description" content="Find the best deals on laptops, phones, and gadgets in Kenya. Compare prices from eBay, AliExpress, and more.">
     <style>
         body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        .product { border-bottom: 1px solid #eee; padding: 10px; }
+        .product-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .product { border: 1px solid #eee; padding: 10px; border-radius: 8px; text-align: center; }
+        .product img { max-width: 100%; height: auto; border-radius: 5px; }
+        .footer { margin-top: 20px; font-size: 14px; text-align: center; }
     </style>
 </head>
 <body>
     <h1>Best Tech Deals in Kenya 🇰🇪</h1>
     <p>Compare prices for laptops, phones, and gadgets updated daily.</p>
-    <div id="products">
-        <!-- Products will be added here later -->
+    
+    <div id="products" class="product-container">
+        <!-- Products will be added dynamically -->
     </div>
-    <p>© 2024 Tech Deals Kenya. Affiliate links may earn us a commission.</p>
+    
+    <div class="footer">
+        <p>© 2025 Tech Deals Kenya. Affiliate links may earn us a commission.</p>
+        <p><a href="https://www.termsfeed.com/live/8de314e2-346f-4b64-879d-42dfe2992b9b" target="_blank">Privacy Policy</a></p>
+        <p>Disclaimer: Prices and availability are subject to change. We may earn commissions from affiliate links.</p>
+    </div>
+    
+    <script>
+        const products = [
+            { name: "Laptop XYZ", price: "$500", img: "https://via.placeholder.com/150", link: "#" },
+            { name: "Smartphone ABC", price: "$300", img: "https://via.placeholder.com/150", link: "#" },
+            { name: "Wireless Earbuds", price: "$50", img: "https://via.placeholder.com/150", link: "#" }
+        ];
+        
+        const productsContainer = document.getElementById("products");
+        products.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.innerHTML = `
+                <img src="${product.img}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>Price: ${product.price}</p>
+                <a href="${product.link}" target="_blank">Buy Now</a>
+            `;
+            productsContainer.appendChild(productDiv);
+        });
+    </script>
 </body>
 </html>
